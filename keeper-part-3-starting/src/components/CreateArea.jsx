@@ -1,11 +1,9 @@
 import React, {useState} from "react";
 
-function CreateArea() {
+function CreateArea(props) {
 
     const [inputTxt,
         setInputTxt] = useState({title: "", content: ""});
-
-    const [notes, setNotes] = useState([]);
 
     function handleChange(event) {
         const {name, value} = event.target;
@@ -16,16 +14,13 @@ function CreateArea() {
                 [name]: value
             }
         });
-
     }
 
     function handleSubmit(event) {
-        setNotes((preValue) => {
-          return [
-            ...preValue,
-            inputTxt
-          ]
-        });
+        props.addNote(inputTxt);
+
+        setInputTxt({title: "", content: ""});
+
         event.preventDefault();
     }
 
