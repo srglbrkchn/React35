@@ -18,12 +18,16 @@ function App() {
         })
     }
 
+    function deleteNote(id){
+      console.log("deleting");
+    }
+
     return (
         <div>
             <Header/>
             <CreateArea addNote={addNote}/> 
             {notes.map((note, index) => {
-                return (<Note key={index} title={note.title} content={note.content}/>);
+                return (<Note key={index} id={index} deleteNote={deleteNote} title={note.title} content={note.content}/>);
             })}
             <Footer/>
         </div>
