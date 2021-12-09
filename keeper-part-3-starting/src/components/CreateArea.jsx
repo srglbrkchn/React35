@@ -5,6 +5,8 @@ function CreateArea() {
     const [inputTxt,
         setInputTxt] = useState({title: "", content: ""});
 
+    const [notes, setNotes] = useState([]);
+
     function handleChange(event) {
         const {name, value} = event.target;
 
@@ -18,6 +20,12 @@ function CreateArea() {
     }
 
     function handleSubmit(event) {
+        setNotes((preValue) => {
+          return [
+            ...preValue,
+            inputTxt
+          ]
+        });
         event.preventDefault();
     }
 
