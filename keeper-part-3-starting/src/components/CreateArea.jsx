@@ -17,10 +17,13 @@ function CreateArea(props) {
     }
 
     function handleSubmit(event) {
+        // Calls the function sent by the parent and pass the inputTxt to it
         props.addNote(inputTxt);
 
+        // Clear the input area 
         setInputTxt({title: "", content: ""});
 
+        // prevent refreshing the page on default
         event.preventDefault();
     }
 
