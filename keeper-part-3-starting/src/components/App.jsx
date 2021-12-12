@@ -19,7 +19,11 @@ function App() {
     }
 
     function deleteNote(id){
-      console.log("deleting");
+      setNotes((preValue) => {
+          return preValue.filter((note, index)=> {
+              return index !== id;
+          })
+      })
     }
 
     return (
